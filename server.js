@@ -1,4 +1,5 @@
 const NodeMediaServer = require('node-media-server');
+const fs = require('fs');
 
 const config = {
   rtmp: {
@@ -25,6 +26,15 @@ const config = {
     ]
   }
 };
+
+// Verificar y crear carpeta media si no existe
+if (!fs.existsSync(config.trans.mediaRoot)) {
+  console.log('[INFO] Creating media directory:', config.trans.mediaRoot);
+  fs.mkdirSync(config.trans.mediaRoot, { recursive: true });
+}
+
+// Mostrar config para verificar mediaRoot
+console.log('[INFO] Starting NodeMediaServer with config:', config);
 
 const nms = new NodeMediaServer(config);
 nms.run();
