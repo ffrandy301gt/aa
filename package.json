@@ -1,0 +1,12 @@
+{
+  "name": "rtmp-server",
+  "version": "1.0.0",
+  "description": "RTMP server for OBS streaming using Node Media Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "node-media-server": "^2.4.7"
+  }
+}
